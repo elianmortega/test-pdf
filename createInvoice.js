@@ -18,14 +18,17 @@ function createInvoice(invoice, path) {
 
 function generateHeader(doc) {
   doc
-    .image("logo.jpg", 50, 45, { width: 50 })
+    .image("./images/logo.jpeg", 40, 20, { width: 120 })
     .fillColor("#444444")
-    .fontSize(20)
-    .text("Cosmeticos Orvel", 110, 57)
+    .fontSize(25)
+    .fillColor("red")
+    .text("COSMETICOS ORVEL", 170, 75, {align:"center"})
+    .fillColor("#444444")
+    .fontSize(8)
+    .text("ANTIGUA CINERUIZ 1 1/2 C. OESTE", {align:"center"})
+    .text("MANAGUA, NICARAGUA", { align: "center" })
     .fontSize(10)
-    .text("ANTIGUA CINERUIZ 1 1/2 C. OESTE", 200, 50, { align: "right" })
-    .text(formatDate(new Date()), 200, 65, { align: "right" })
-    .text("MANAGUA, NICARAGUA", 200, 80, { align: "right" })
+    .text(formatDate(new Date()),50,150,{ align: "right" })
     .moveDown();
 }
 
@@ -168,12 +171,13 @@ function generateExtraInformation(doc){
 
 function generateFooter(doc) {
   doc
+    .image("./images/firma.jpeg", 200, globalPosition, { width: 200, align:"center" })
     .fontSize(8)
     .fillColor("red")
     .text(
       "Telefono: 8264 - 4263",
       50,
-      globalPosition,
+      globalPosition + 70,
       { align: "center", width: 500}
     )
     .text(
@@ -193,7 +197,7 @@ function generateTableRow(
   doc
     .fontSize(10)
     .text(item, 50, y)
-    .text(description, 170, y)
+    .text(description, 190, y)
     .text(unitCost, 280, y, { width: 90, align: "right" })
     .text(quantity, 370, y, { width: 90, align: "right" })
     .text(lineTotal, 0, y, { align: "right" });
@@ -217,7 +221,7 @@ function formatDate(date) {
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
 
-  return year + "/" + month + "/" + day;
+  return day + "/" + month + "/" + year;
 }
 
 module.exports = {

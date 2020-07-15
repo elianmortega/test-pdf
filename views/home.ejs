@@ -4,20 +4,28 @@
 
 
 <form action="/invoice" method="POST">
-    <input type="text" class="form-control" placeholder="Nombre Cliente" name="nombreCliente">
+    <div class="row col-sm-12">
+        <input type="text" class="form-control" placeholder="Nombre Cliente" name="nombreCliente">
+    </div>
     <% listaProductos.forEach((producto) =>{ %> 
-        <div class="input-group mb-3 mt-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroup-sizing-default"><%= producto.nombre %> </span>
+        <div class="input-group mb-3 mt-3 row">
+            
+            <div class="input-group-prepend col-sm-12 col-md-6">
+                <span class="input-group-text" id="inputGroup-sizing-default"><%= producto.nombre %> </span>
+                <select class="custom-select" name="select<%= producto.id %>">
+                    <option selected>Elegir...</option>
+                    <% listaCapacidades.forEach(capacidad => { %> 
+                        <option value=<%= capacidad.nombre %>><%= capacidad.nombre %> </option>  
+                    <% }); %> 
+                </select>
             </div>
-            <select class="custom-select" name="select<%= producto.id %>">
-                <option selected>Elegir...</option>
-                <% listaCapacidades.forEach(capacidad => { %> 
-                    <option value=<%= capacidad.nombre %>><%= capacidad.nombre %> </option>  
-                <% }); %> 
-            </select>
-            <input type="text" class="form-control" placeholder="Cantidad" name="cant<%= producto.id %>">
-            <input type="text" class="form-control" placeholder="Precio" name="precio<%= producto.id %>">
+       
+            <div class="col-sm-12 col-md-3">
+                <input type="text" class="form-control" placeholder="Cantidad" name="cant<%= producto.id %>">
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <input type="text" class="form-control" placeholder="Precio" name="precio<%= producto.id %>">
+            </div>  
         </div>
         
 
