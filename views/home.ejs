@@ -10,8 +10,17 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-default"><%= producto.nombre %> </span>
             </div>
-            <input type="number" class="form-control" name=<%= producto.id %> >
+            <select class="custom-select" name="select<%= producto.id %>">
+                <option selected>Elegir...</option>
+                <% listaCapacidades.forEach(capacidad => { %> 
+                    <option value=<%= capacidad.nombre %>><%= capacidad.nombre %> </option>  
+                <% }); %> 
+            </select>
+            <input type="text" class="form-control" placeholder="Cantidad" name="cant<%= producto.id %>">
+            <input type="text" class="form-control" placeholder="Precio" name="precio<%= producto.id %>">
         </div>
+        
+
     <% }); %> 
 
     <button class="btn btn-primary" type="submit">Proforma</button>
