@@ -1,3 +1,5 @@
+var PORT = process.env.PORT || 3000;
+
 const express =  require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
@@ -51,7 +53,7 @@ app.post("/invoice", (req,res)=>{
     res.send(data);
 });
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
     console.log("App listening on port 3000");
 });
 
