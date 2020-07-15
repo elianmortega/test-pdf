@@ -1,0 +1,21 @@
+<%- include("partials/header") %> 
+
+<h1>Proforma</h1>
+
+
+<form action="/invoice" method="POST">
+    <input type="text" class="form-control" placeholder="Nombre Cliente" name="nombreCliente">
+    <% listaProductos.forEach((producto) =>{ %> 
+        <div class="input-group mb-3 mt-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"><%= producto.nombre %> </span>
+            </div>
+            <input type="number" class="form-control" name=<%= producto.id %> >
+        </div>
+    <% }); %> 
+
+    <button class="btn btn-primary" type="submit">Proforma</button>
+</form>
+
+
+<%- include("partials/footer") %> 
