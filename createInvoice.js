@@ -29,6 +29,10 @@ function generateHeader(doc) {
     .text("MANAGUA, NICARAGUA", { align: "center" })
     .fontSize(10)
     .text(formatDate(new Date()),50,150,{ align: "right" })
+    .font("Helvetica-Bold")
+    .fontSize(18)
+    .text("PROFORMA", {align:"center"})
+
     .moveDown();
 }
 
@@ -71,16 +75,16 @@ function generateCustomerInformation(doc, invoice) {
   doc
     .fillColor("#444444")
     .fontSize(12)
-    .text(invoice.shipping.name.toUpperCase(), 50, 160);
+    .text(invoice.shipping.name.toUpperCase(), 50, 200);
 
-  generateHr(doc, 185);
+  generateHr(doc, 220);
 
   
 }
 
 function generateInvoiceTable(doc, invoice) {
   let i;
-  const invoiceTableTop = 200;
+  const invoiceTableTop = 230;
   doc.font("Helvetica-Bold");
   doc.fontSize(10);
   generateTableRow(
@@ -171,13 +175,13 @@ function generateExtraInformation(doc){
 
 function generateFooter(doc) {
   doc
-    .image("./images/firma.jpeg", 200, globalPosition, { width: 200, align:"center" })
+    .image("./images/firma.jpeg", 205, globalPosition, { width: 200, align:"center" })
     .fontSize(8)
     .fillColor("red")
     .text(
       "Telefono: 8264 - 4263",
       50,
-      globalPosition + 70,
+      globalPosition + 110,
       { align: "center", width: 500}
     )
     .text(
