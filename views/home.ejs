@@ -4,35 +4,57 @@
 
 
 <form action="/invoice" method="POST">
-    <div class="row col-sm-12">
+    <div class="mb-4">
         <input type="text" class="form-control" placeholder="Nombre Cliente" name="nombreCliente">
     </div>
-    <% listaProductos.forEach((producto) =>{ %> 
-        <div class="input-group mb-3 mt-3 row">
-            
-            <div class="input-group-prepend col-sm-12 col-md-6">
-                <span class="input-group-text" id="inputGroup-sizing-default"><%= producto.nombre %> </span>
-                <select class="custom-select" name="select<%= producto.id %>">
-                    <option selected>Elegir...</option>
-                    <% listaCapacidades.forEach(capacidad => { %> 
-                        <option value=<%= capacidad.nombre %>><%= capacidad.nombre %> </option>  
-                    <% }); %> 
-                </select>
-            </div>
-       
-            <div class="col-sm-12 col-md-3">
-                <input type="text" class="form-control" placeholder="Cantidad" name="cant<%= producto.id %>">
-            </div>
-            <div class="col-sm-12 col-md-3">
-                <input type="text" class="form-control" placeholder="Precio" name="precio<%= producto.id %>">
-            </div>  
+    <% for(var i = 0; i<cantidadProductos; i++){ %> 
+
+    <div class="row mb-4">
+        <div class="input-group col-md-3 col-sm-6 mb-1">
+            <select class="custom-select" name="nombreProducto<%=i%>">
+                <option selected>Producto</option>
+                <% Object.keys(listaProductos).forEach((key)=> { %> 
+                    <option value=<%=key%>><%= listaProductos[key] %> </option>  
+                <% }); %> 
+            </select>
         </div>
         
 
-    <% }); %> 
+        <div class="input-group col-md-3 col-sm-6 mb-1">
+            <select class="custom-select" name="capacidadProducto<%=i%>">
+                <option selected>Elegir...</option>
+                <% Object.keys(listaCapacidades).forEach((key)=> { %> 
+                    <option value=<%=key%>><%= listaCapacidades[key] %> </option>  
+                <% }); %> 
+            </select>
+        </div>
 
-    <button class="btn btn-primary" type="submit">Proforma</button>
+
+        <div class="input-group col-md-3 col-sm-6 mb-1">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Cantidad</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Cantidad" name="cantidadProducto<%=i%>">
+        </div>
+
+        <div class="input-group col-md-3 col-sm-6 mb-1">
+            <div class="input-group-prepend">
+                <span class="input-group-text">C$</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Precio" name="precioProducto<%=i%>">
+        </div> 
+
+    </div> 
+    
+
+        
+
+        
+    <% } %> 
+    <button class="btn btn-primary mb-5" type="submit">Proforma</button>
 </form>
+
+
 
 
 <%- include("partials/footer") %> 
