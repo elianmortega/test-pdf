@@ -20,6 +20,7 @@ const listaProductos = {
   "alcoholAtomizador": "Alcohol Antiseptico al \n70% con Atomizador\n",
   "alcohol": "Alcohol Antiseptico al 70%",
   "envaseAtomizador":  "Envase con Atomizador",
+  "desinfectantePiso": "Desinfectante para pisos",
 };
 
 
