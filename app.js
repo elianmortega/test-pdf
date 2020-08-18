@@ -22,6 +22,7 @@ const listaProductos = {
   envaseAtomizador: "Envase con Atomizador",
   desinfectantePiso: "Desinfectante para pisos",
   envaseSpray: "Envase con Spray",
+  cloro: "Cloro al 6%",
 };
 
 const listaCapacidades = {
