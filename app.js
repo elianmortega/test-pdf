@@ -19,10 +19,13 @@ const listaProductos = {
   jabonLiquido: "Jabon Liquido",
   alcoholAtomizador: "Alcohol Antiseptico al \n70% con Atomizador\n",
   alcohol: "Alcohol Antiseptico al 70%",
-  envaseAtomizador: "Envase con Atomizador",
   desinfectantePiso: "Desinfectante para pisos",
-  envaseSpray: "Envase con Spray",
   cloro: "Cloro al 6%",
+  envaseSpray: "Envase con Spray",
+  atomizador: "Atomizador",
+  envaseAtomizador: "Envase con Atomizador",
+  dispensador: "Dispensador",
+  envaseDispensador: "Envase con Dispensador",
 };
 
 const listaCapacidades = {
