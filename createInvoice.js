@@ -77,14 +77,14 @@ function generateCustomerInformation(doc, invoice) {
     .fontSize(12)
     .text(invoice.shipping.name.toUpperCase(), 50, 200);
 
-  generateHr(doc, 220);
+  generateHr(doc, 200);
 
   
 }
 
 function generateInvoiceTable(doc, invoice) {
   let i;
-  const invoiceTableTop = 230;
+  const invoiceTableTop = 210;
   doc.font("Helvetica-Bold");
   doc.fontSize(10);
   generateTableRow(
@@ -101,7 +101,7 @@ function generateInvoiceTable(doc, invoice) {
 
   for (i = 0; i < invoice.items.length; i++) {
     const item = invoice.items[i];
-    const position = invoiceTableTop + (i + 1) * 35;
+    const position = invoiceTableTop + (i + 1) * 45;
     generateTableRow(
       doc,
       position,
@@ -112,10 +112,10 @@ function generateInvoiceTable(doc, invoice) {
       formatCurrency(item.total)
     );
 
-    generateHr(doc, position + 25);
+    generateHr(doc, position + 35);
   }
 
-  const totalPosition = invoiceTableTop + (i + 1) * 35;
+  const totalPosition = invoiceTableTop + (i + 1) * 45;
   globalPosition = totalPosition + 50;
   doc.font("Helvetica-Bold");
   generateTableRow(
@@ -157,15 +157,13 @@ function generateExtraInformation(doc){
   doc.font("Helvetica");
   doc
   .fontSize(11)
-  .text("FORMA DE PAGO: CHEQUE, CONTADO O TRANSFERENCIA",50, globalPosition)
-  .text("ENTREGA 5 DIA DESPUÉS DE RECIBIDO EL 50% DE ANTICIPO, 50% CONTRA")
-  .text("ENTREGA PROFORMA VALIDA POR 15 DÍAS");
+  .text("FORMA DE PAGO: CHEQUE, CONTADO O TRANSFERENCIA",50, globalPosition);
 
   doc.font("Helvetica-Bold");
   doc
   .fontSize(11)
   .text("")
-  .text("HACEMOS ENVÍO POR TRANSCARGO", 50)
+  .text("HACEMOS ENVÍO POR CARGOTRANS", 50)
   .text("ENVÍO BUS INTER LOCAL")
   .text("COSTO ADICIONAL")
   .text("NOTA: SOMOS CUTA FIJA",{underline:true});
@@ -179,7 +177,7 @@ function generateFooter(doc) {
     .fontSize(8)
     .fillColor("red")
     .text(
-      "Telefono: 8264 - 4263",
+      "Telefono: 8183 - 1522",
       50,
       globalPosition + 110,
       { align: "center", width: 500}
@@ -201,7 +199,7 @@ function generateTableRow(
   doc
     .fontSize(10)
     .text(item, 50, y)
-    .text(description, 190, y)
+    .text(description, 210, y)
     .text(unitCost, 280, y, { width: 90, align: "right" })
     .text(quantity, 370, y, { width: 90, align: "right" })
     .text(lineTotal, 0, y, { align: "right" });

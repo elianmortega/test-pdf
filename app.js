@@ -26,7 +26,13 @@ const listaProductos = {
   envaseAtomizador: "Envase con Atomizador",
   dispensador: "Dispensador",
   envaseDispensador: "Envase con Dispensador",
+  atomizadorLlaverCinta: "Atomizador spray con llavero \nde 60 ML con cinta ",
+  atomizadorLlaver: "Atomizador spray con llavero de \n60 ML sin cinta ",
+  alcoholSprayLLaveroCinta: "Alcohol Antisepctico al 70%\nAtomizador spray con llavero\nde 60 ML con cinta",
+  alcoholSprayLLavero: "Alcohol Antisepctico al 70%\nAtomizador spray con llavero\nde 60 ML sin cinta",
+
 };
+
 
 const listaCapacidades = {
   "30ml": "30ml",
