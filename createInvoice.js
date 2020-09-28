@@ -77,14 +77,14 @@ function generateCustomerInformation(doc, invoice) {
     .fontSize(12)
     .text(invoice.shipping.name.toUpperCase(), 50, 200);
 
-  generateHr(doc, 200);
+  generateHr(doc, 230);
 
   
 }
 
 function generateInvoiceTable(doc, invoice) {
   let i;
-  const invoiceTableTop = 210;
+  const invoiceTableTop = 240;
   doc.font("Helvetica-Bold");
   doc.fontSize(10);
   generateTableRow(
@@ -98,10 +98,9 @@ function generateInvoiceTable(doc, invoice) {
   );
   generateHr(doc, invoiceTableTop + 20);
   doc.font("Helvetica");
-
   for (i = 0; i < invoice.items.length; i++) {
     const item = invoice.items[i];
-    const position = invoiceTableTop + (i + 1) * 45;
+    const position = invoiceTableTop + (i) * 45 +30;
     generateTableRow(
       doc,
       position,
